@@ -1,12 +1,13 @@
 ## Ulyp: Recording Java code execution for faster debugging
 
-The article presents Ulyp - a recording debugger.
+[Ulyp](https://github.com/0xaa4eb/ulyp) is a recording debugger and a reverse engineering tool for JVM apps. 
+The blogpost shows how the tool can help investigating internals of Hibernate framework.
 
 ---
 
 ### Introduction
 
-The article presents Ulyp which is an open-source instrumentation agent that records method calls 
+The article presents [Ulyp](https://github.com/0xaa4eb/ulyp) which is an open-source instrumentation agent that records method calls 
 (including argument and return values) of all third-party libraries of JVM apps. Software engineer 
 can later upload a recording file to the UI desktop app in order to better understand the 
 internals of libraries and even the whole applications. The tool can help developers understand
@@ -146,7 +147,7 @@ Now, we have main method which looks like this:
     }
 ```
 
-The whole code is available at the (repo)[https://github.com/0xaa4eb/ulyp-examples/blob/main/src/main/java/org/example/hibernate/HibernateDemo.java]. 
+The whole code is available at the [repo](https://github.com/0xaa4eb/ulyp-examples/blob/main/src/main/java/org/example/hibernate/HibernateDemo.java). 
 After we execute the code, it will print the result:
 
 ```
