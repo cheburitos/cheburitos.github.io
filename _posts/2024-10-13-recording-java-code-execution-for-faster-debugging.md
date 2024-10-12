@@ -222,16 +222,14 @@ If we wanted we could dive deep down to H2 database level where JDBC statement i
 
 ### Conclusion
 
-This was the most simple demo for using Ulyp. Other cases include (but not limited to):
+This was a simple demo of using Ulyp. Other cases include (but not limited to):
 
 * tracing distributed systems running in clouds
 * gathering gigs of data for later analysis
 * recording realtime apps where stopping a thread using a conventional debugger is not an option
 * finding inefficiencies in a gigantic frameworks
 
-Ulyp doesn’t try to solve all the existing problems and it’s definitely not a silver bullet. The overhead of instrumenting could be quite high. You might now want to run it on production environment, but dev/test are usually ok. But if one can run their software app locally or on dev environment, it opens the opportunity to see things at completely different angle.
-
-Ulyp is fully open-source. The repo is hosted on (github)[https://github.com/0xaa4eb/ulyp]
-
-Part 1 has just covered a relatively basic case, Part2 will cover some more examples for Spring Boot. 
-Future blog posts will cover more sophisticated use cases like recording several apps in a distributed system.
+Ulyp doesn’t try to solve all the existing problems and it’s definitely not a silver bullet. 
+The overhead of instrumenting could be quite high. You might now want to run it on production environment, 
+but dev/test are usually ok. But if one can run their software app locally or on dev environment, 
+it opens the opportunity to see things at completely different angle.
