@@ -30,7 +30,7 @@ DatabaseEntity fromCache = cache.get(5);
 
 to this:
 
-<img src="https://0xaa4eb.github.io/assets/2024/10-13/caffeine.png" alt="" width="1264" height="800" class="size-full wp-image-10237" />
+![caffeine](https://0xaa4eb.github.io/assets/2024/10-13/caffeine.png)
 
 ### Challenges in Modern Software engineering
 
@@ -178,7 +178,7 @@ items from ArrayList if it is passed as an argument (or returned from) to some r
 After running the demo with properties set, we can upload the file to UI desktop app.
 The first thing we see is the list of recorded methods on the left.
 
-<img src="https://0xaa4eb.github.io/assets/2024/10-13/hibernate1.png" alt="" width="1012" height="398" class="size-full wp-image-10237" />
+![hibernate](https://0xaa4eb.github.io/assets/2024/10-13/hibernate1.png)
 
 Every entry in the list is a recorded method of some instance of `PersonStoreService` class. 
 We can also see the duration of methods, as well as the number of recorded calls inside. 
@@ -200,23 +200,23 @@ Every node is a recorded method call. Nodes are also marked with black pane whic
 node has comparing to the other nodes. The first thing we can see is that Spring proxy actually 
 calls the instance of `TransactionInterceptor`:
 
-<img src="https://0xaa4eb.github.io/assets/2024/10-13/hibernate2.png" alt="" width="1770" height="352" class="size-full wp-image-10237" />
+![TransactionInterceptor](https://0xaa4eb.github.io/assets/2024/10-13/hibernate2.png)
 
 If we dive deeper, we can see that our `PersonStoreService` is called after the transaction is started. 
 Our transaction manager is an instance of `JpaTransactionManager` class. We can also see a call to 
 `TransactionInterceptor.commitTransactionAfterReturning` where the opened transaction is supposedly commited.
 
-<img src="https://0xaa4eb.github.io/assets/2024/10-13/hibernate3.png" alt="" width="974" height="440" class="size-full wp-image-10237" />
+![hibernate](https://0xaa4eb.github.io/assets/2024/10-13/hibernate3.png)
 
 The further exploration points where the instance of `EntityManager` is called:
 
-<img src="https://0xaa4eb.github.io/assets/2024/10-13/hibernate4.png" alt="" width="944" height="579" class="size-full wp-image-10237" />
+![entity manager](https://0xaa4eb.github.io/assets/2024/10-13/hibernate4.png)
 
 At this point we see only simple class names (i.e. no package name), and it might be hard to tell which 
 classes belong to Hibernate. That’s exactly why Ulyp can show full class names. 
 Just select a node and hold the Shift button, and it you will see fully qualified names:
 
-<img src="https://0xaa4eb.github.io/assets/2024/10-13/hibernate5.png" alt="" width="1866" height="260" class="size-full wp-image-10237" />
+![show types feature](https://0xaa4eb.github.io/assets/2024/10-13/hibernate5.png)
 
 If we wanted we could dive deep down to H2 database level where JDBC statement is created and executed (this happens when the transaction is commited).
 
