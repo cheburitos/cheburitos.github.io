@@ -81,6 +81,8 @@ every filter does some work and then calls the next filter. Here we see that `Or
 
 ![MVC filters](https://0xaa4eb.github.io/assets/2024/12-14/petclinic3.png)
 
+You can read more about Servlet based application architecture [here](https://docs.spring.io/spring-security/reference/servlet/architecture.html).
+
 If we dig down, we can observe how Spring Web creates [micrometer](https://github.com/micrometer-metrics/micrometer) events. 
 Other stuff is updating context which can be accessed from other filters.
 
@@ -106,4 +108,4 @@ another [article](https://0xaa4eb.github.io/2024/10/13/recording-java-code-execu
 ### Conclusion
 
 The article shown how a developer can record and analyze the internals of large framework. The obtained knowledge can 
-help in development. Feel free to try [ulyp](https://github.com/0xaa4eb/ulyp) while working on huge codebase.
+help in development. Feel free to try [ulyp](https://github.com/0xaa4eb/ulyp) while working on a huge codebase.
