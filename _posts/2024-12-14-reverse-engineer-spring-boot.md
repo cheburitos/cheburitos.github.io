@@ -1,6 +1,10 @@
-## Reverse engineer Spring Boot in 5 minutes using a recording debugger
+## Reverse engineer Spring Web in 5 minutes using a recording debugger
 
-Large Java frameworks can be reverse engineered with help of some tools. The article shows how to dive deep into Spring Boot with help of [ulyp](https://github.com/0xaa4eb/ulyp).
+Large Java frameworks can be reverse engineered with help of some tools. 
+The article shows how to dig into Spring Web internals with help of [ulyp](https://github.com/0xaa4eb/ulyp) 
+in less than 10 minutes. A developer can observe how framework works inside before diving into source code. 
+This is a part 2 of the ongoing blog series about ulyp. 
+The first part is available [here](https://0xaa4eb.github.io/2024/10/13/recording-java-code-execution-for-faster-debugging.html).
 
 ---
 
@@ -22,9 +26,9 @@ The article focuses on the last approach. In certain cases, using such a tool mi
 Recorded execution flow can be used to get the idea how things work at runtime. A developer can then dive 
 into source code with good understanding.
 
-### Reverse engineering Spring Boot
+### Reverse engineering Spring Web
 
-We will show how the tool works on Spring Boot. More precisely, we will analyze Web part of it. The project which we are going to 
+We will see how the tool works on Spring Web based app. The project which we are going to 
 use is [spring-petclinic](https://github.com/spring-petclinic/spring-petclinic-rest). This is a basic web app written on Java with Spring Web. 
 Suppose, we want to understand how it works. And we want to do it really quick.
 
@@ -43,7 +47,7 @@ we see the top of the stacktrace is
 	at java.base/java.lang.Thread.run(Thread.java:1583)
 ```
 
-Since we want to reverse engineer Spring Boot, we'd like to start from the bottom of the stacktrace. This is `org.springframework.web.filter.OncePerRequestFilter`
+Since we want to reverse engineer Spring Web, we'd like to start from the bottom of the stacktrace. This is `org.springframework.web.filter.OncePerRequestFilter`
 in our case. It's a first called method of Spring framework.
 
 If we want to record execution, we should configure ulyp first. We specify the following system properties when start petclinic app, 
