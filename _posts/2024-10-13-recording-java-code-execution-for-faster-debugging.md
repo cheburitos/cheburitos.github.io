@@ -1,13 +1,13 @@
 ## Ulyp: Recording Java code execution for faster debugging
 
-[Ulyp](https://github.com/0xaa4eb/ulyp) is a recording debugger and a reverse engineering tool for JVM apps. 
+[Ulyp](https://github.com/cheburitos/ulyp) is a recording debugger and a reverse engineering tool for JVM apps. 
 The blogpost shows how the tool can help investigating internals of Hibernate framework.
 
 ---
 
 ### Introduction
 
-The article presents [Ulyp](https://github.com/0xaa4eb/ulyp) which is an open-source instrumentation agent that records method calls 
+The article presents [Ulyp](https://github.com/cheburitos/ulyp) which is an open-source instrumentation agent that records method calls 
 (including argument and return values) of all third-party libraries of JVM apps. Software engineer 
 can later upload a recording file to the UI desktop app in order to better understand the 
 internals of libraries and even the whole applications. The tool can help developers understand
@@ -30,7 +30,7 @@ DatabaseEntity fromCache = cache.get(5);
 
 to this:
 
-![caffeine](https://0xaa4eb.github.io/assets/2024/10-13/caffeine.png)
+![caffeine](https://cheburitos.github.io/assets/2024/10-13/caffeine.png)
 
 ### Challenges in Modern Software engineering
 
@@ -147,7 +147,7 @@ Now, we have main method which looks like this:
     }
 ```
 
-The whole code is available at the [repo](https://github.com/0xaa4eb/ulyp-examples/blob/main/src/main/java/org/example/hibernate/HibernateDemo.java). 
+The whole code is available at the [repo](https://github.com/cheburitos/ulyp-examples/blob/main/src/main/java/org/example/hibernate/HibernateDemo.java). 
 After we execute the code, it will print the result:
 
 ```
@@ -178,7 +178,7 @@ items from ArrayList if it is passed as an argument (or returned from) to some r
 After running the demo with properties set, we can upload the file to UI desktop app.
 The first thing we see is the list of recorded methods on the left.
 
-![hibernate](https://0xaa4eb.github.io/assets/2024/10-13/hibernate1.png)
+![hibernate](https://cheburitos.github.io/assets/2024/10-13/hibernate1.png)
 
 Every entry in the list is a recorded method of some instance of `PersonStoreService` class. 
 We can also see the duration of methods, as well as the number of recorded calls inside. 
@@ -200,23 +200,23 @@ Every node is a recorded method call. Nodes are also marked with black pane whic
 node has comparing to the other nodes. The first thing we can see is that Spring proxy actually 
 calls the instance of `TransactionInterceptor`:
 
-![TransactionInterceptor](https://0xaa4eb.github.io/assets/2024/10-13/hibernate2.png)
+![TransactionInterceptor](https://cheburitos.github.io/assets/2024/10-13/hibernate2.png)
 
 If we dive deeper, we can see that our `PersonStoreService` is called after the transaction is started. 
 Our transaction manager is an instance of `JpaTransactionManager` class. We can also see a call to 
 `TransactionInterceptor.commitTransactionAfterReturning` where the opened transaction is supposedly commited.
 
-![hibernate](https://0xaa4eb.github.io/assets/2024/10-13/hibernate3.png)
+![hibernate](https://cheburitos.github.io/assets/2024/10-13/hibernate3.png)
 
 The further exploration points where the instance of `EntityManager` is called:
 
-![entity manager](https://0xaa4eb.github.io/assets/2024/10-13/hibernate4.png)
+![entity manager](https://cheburitos.github.io/assets/2024/10-13/hibernate4.png)
 
 At this point we see only simple class names (i.e. no package name), and it might be hard to tell which 
 classes belong to Hibernate. That’s exactly why Ulyp can show full class names. 
 Just select a node and hold the Shift button, and it you will see fully qualified names:
 
-![show types feature](https://0xaa4eb.github.io/assets/2024/10-13/hibernate5.png)
+![show types feature](https://cheburitos.github.io/assets/2024/10-13/hibernate5.png)
 
 If we wanted we could dive deep down to H2 database level where JDBC statement is created and executed (this happens when the transaction is commited).
 
